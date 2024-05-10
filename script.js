@@ -1,7 +1,10 @@
- const images = [
-            { url: 'image1.jpg' },
-            { url: 'image2.jpg' },
-            { url: 'image3.jpg' }
+ const output = document.getElementById("output");
+        const btn = document.getElementById("download-images-button");
+
+        const images = [
+            { url: "https://picsum.photos/id/237/200/300" },
+            { url: "https://picsum.photos/id/238/200/300" },
+            { url: "https://picsum.photos/id/239/200/300" },
         ];
 
         function downloadImages(images) {
@@ -17,9 +20,8 @@
             return Promise.all(promises);
         }
 
-        document.getElementById('download-images-button').addEventListener('click', () => {
-            const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = ''; 
+        btn.addEventListener('click', () => {
+            output.innerHTML = ''; // Clear previous images
 
             downloadImages(images)
                 .then(loadedImages => {
@@ -29,7 +31,7 @@
                         const imageElement = new Image();
                         imageElement.src = img.src;
                         imageContainer.appendChild(imageElement);
-                        outputDiv.appendChild(imageContainer);
+                        output.appendChild(imageContainer);
                     });
                 })
                 .catch(error => {
