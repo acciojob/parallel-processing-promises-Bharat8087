@@ -1,1 +1,14 @@
 /*  your css code here. If applicable */
+ #output {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container {
+            margin: 10px;
+        }
+        .image-container img {
+            max-width: 200px;
+            max-height: 200px;
+        }
